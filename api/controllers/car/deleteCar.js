@@ -1,10 +1,18 @@
 const mongoose = require("mongoose");
-const Car = require("../models/Car");
+const { sendResponse } = require("../../../helpers/utils");
+const Car = require("../../../models/Car");
 
-
-function deleteCar(req, res, next) {
+const deleteCar = async (req, res, next) => {
   try {
-  } catch (error) {}
+    const carId = req.params;
+        
+    const options = { new: true };
+    
+    const updated = await Car.findByIdAndDelete(carId.id, options);
+    sendResponse(res, 200, true, { data: updated }, null, "Delete Car success");
+  } catch (error) {
+    next(error)
+  }
 }
 
 module.exports = { deleteCar };

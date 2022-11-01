@@ -1,10 +1,21 @@
 const mongoose = require("mongoose");
-const Car = require("../models/Car");
+const { sendResponse } = require("../../../helpers/utils");
+const Car = require("../../../models/Car");
 
-
-function editCar(req, res, next) {
+const editCar = async (req, res, next) => {
   try {
-  } catch (error) {}
-}
+    const carId = req.params;
+    
+    const updateInfo = req.body;
+    console.log(updateInfo)
+    // const options = { new: true };
+    
+    const updated = await Car.findByIdAndUpdate(carId.id, updateInfo);
+
+    sendResponse(res, 200, true, { data: updated }, null, "Update Car success");
+  } catch (error) {
+    next(error)
+  }
+};
 
 module.exports = { editCar };
