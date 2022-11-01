@@ -1,10 +1,9 @@
 const express = require('express');
+const router = express.Router();
 const { createCar } = require('../api/controllers/car/createCar');
 const { deleteCar } = require('../api/controllers/car/deleteCar');
 const { editCar } = require('../api/controllers/car/editCar');
 const { getCars } = require('../api/controllers/car/getCars');
-
-const router = express.Router();
 
 // CREATE
 router.post('/', createCar);
