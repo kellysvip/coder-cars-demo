@@ -33,6 +33,10 @@ const carSchema = new mongoose.Schema(
 			required: true,
 		},
 		isDeleted: { type: Boolean, default: false, required: true },
+		page: {
+			type: Number | String,
+			required: false,
+		}
 	},
 	{
 		timestamps: true,

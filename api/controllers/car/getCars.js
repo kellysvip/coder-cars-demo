@@ -8,7 +8,9 @@ const getCars = async (req, res, next) => {
   let limit = 10;
   try {
     const filter = req.query;
+    if (filter?.page > 25) filter.page = '1'
 
+    console.log(filter)
     //mongoose query
     const listOfFound = await Car.find(filter);
     sendResponse(
@@ -16,8 +18,8 @@ const getCars = async (req, res, next) => {
       200,
       true,
       {
-        data: listOfFound.slice(0, limit),
-        page: limit/10,
+        cars: listOfFound.slice(0, limit),
+        page: Number(filter.page),
         total: listOfFound.length,
       },
       null,

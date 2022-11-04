@@ -12,7 +12,7 @@ const editCar = async (req, res, next) => {
     
     const updated = await Car.findByIdAndUpdate(carId.id, updateInfo);
 
-    sendResponse(res, 200, true, { data: updated }, null, "Update Car success");
+    sendResponse(res, 200, true, { updated }, null, "Update Car success");
   } catch (error) {
     next(error)
   }

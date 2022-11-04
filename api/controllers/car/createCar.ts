@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-const { sendResponse, AppError } = require("../../../helpers/utils");
-const Car = require("../../../models/Car");
+import { Response, Request, NextFunction } from "express";
+import { sendResponse, AppError } from "../../../helpers/utils";
+import { Car } from "../../../models/Car";
 
-const createCar = async (req, res, next) => {
+export const createCar = async (req: Request, res: Response, next: NextFunction) => {
+
   try {
     const info = req.body;
     if (!info) throw new AppError(402, "Bad Request", "Create Car Error");
@@ -15,4 +16,4 @@ const createCar = async (req, res, next) => {
   }
 };
 
-module.exports = { createCar };
+
