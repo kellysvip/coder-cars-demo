@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { sendResponse } from "../../../helpers/utils";
 import { Car } from "../../../models/Car";
 
-const editCar = async (req: Request, res: Response, next: NextFunction) => {
+export const editCar = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const carId = req.params;
     
@@ -19,4 +19,3 @@ const editCar = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-module.exports = { editCar };

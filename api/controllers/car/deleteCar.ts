@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { sendResponse } from "../../../helpers/utils";
 import { Car } from "../../../models/Car";
 
-const deleteCar = async (req: Request, res: Response, next: NextFunction) => {
+export const deleteCar = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const carId = req.params;
         
@@ -20,4 +20,3 @@ const deleteCar = async (req: Request, res: Response, next: NextFunction) => {
   }
 }
 
-module.exports = { deleteCar };
