@@ -23,7 +23,7 @@ export function sendResponse(
 
 export class AppError extends Error {
   public statusCode: number;
-  public message: string;
+  // public message: string;
   public errorType: string;
   // all errors using this class are operational errors.
   public isOperational = true;
